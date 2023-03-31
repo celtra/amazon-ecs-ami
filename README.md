@@ -1,7 +1,15 @@
 # Forked repo - Build ARM64 image with Nvidia GPU support (for ECS)
 ```bash
-./build-ami al2armgpu
-./build-ami al2gpu
+docker container run --rm -it -v "$PWD:/home" ubuntu:22.10 bash
+apt update && apt install -y make curl zip
+
+export AWS_REGION=us-east-1
+export AWS_ACCESS_KEY_ID=XXXXXXXXXXXXXXXXXXXX
+export AWS_SECRET_ACCESS_KEY=xxxXxxxXxxxXxxxXxxxXxxxXxxxXxxxXxxxXxxxX
+
+REGION=us-east-1 make al2gpu
+# OR
+REGION=us-east-1 make al2armgpu
 ```
 
 # ECS-optimized AMI Build Recipes
